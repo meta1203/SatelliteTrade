@@ -26,6 +26,7 @@ public class Econ {
 	public Econ() {
 		useVault = getSatoshisEconomy() == null;
 		if (useVault) {
+			Satellitetrade.log.info("Linking into Vault!");
 			RegisteredServiceProvider<Economy> economyProvider = Bukkit.getServer().getServicesManager().getRegistration(net.milkbowl.vault.economy.Economy.class);
 	        if (economyProvider != null) {
 	            vault = economyProvider.getProvider();
@@ -34,8 +35,10 @@ public class Econ {
 	        	Bukkit.getPluginManager().disablePlugin(Bukkit.getPluginManager().getPlugin("SatelliteTrade"));
 	        }
 		} else {
+			Satellitetrade.log.info("Linking into Satoshis!");
 			satoshis = getSatoshisEconomy();
 		}
+		Satellitetrade.log.info("Linked into " + (useVault ? "Vault." : "Satoshis."));
 	}
 	
 	public String format(double value) {
