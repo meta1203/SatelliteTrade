@@ -1,0 +1,10 @@
+author: meta1203
+database: false
+description: Allows command-based player to player trading. Uses Satoshis or Vault.
+generator: http://dinnerbone.com/minecraft/tools/pluginator/
+main: me.meta1203.plugins.satellitetrade.Satellitetrade
+name: SatelliteTrade
+startup: postworld
+softdepend: [Satoshis, Vault]
+url: http://www.metaserve.net/
+version: '0.1'
