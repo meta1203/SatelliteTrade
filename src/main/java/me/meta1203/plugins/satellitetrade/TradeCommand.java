@@ -33,8 +33,8 @@ public class TradeCommand implements CommandExecutor {
 				
 				TradeChest chest = new TradeChest(p, to, amount);
 				progress("Opening trading inventory for " + p.getName(), arg0);
-				chest.attachToPlayer();
 				Satellitetrade.openChests.add(chest);
+				chest.attachToPlayer();
 			} catch (NumberFormatException e) {
 				error("Usage: /trade <player name> <value>", arg0);
 				error("Value must be a number!", arg0);

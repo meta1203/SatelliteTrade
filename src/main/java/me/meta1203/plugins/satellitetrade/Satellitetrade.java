@@ -37,10 +37,12 @@ public class Satellitetrade extends JavaPlugin implements Listener {
     	for (TradeChest current : openChests) {
     		if (current.match(event.getInventory())) {
     			chest = current;
+    			System.out.println("Yah.mov");
     			break;
     		}
     	}
     	if (chest == null) {
+    		System.out.println("Nope.avi");
     		return;
     	}
     	chest.notifyTradee();
