@@ -8,3 +8,6 @@ startup: postworld
 softdepend: [Satoshis, Vault]
 url: http://www.metaserve.net/
 version: '0.1'
+commands:
+  trade:
+    description: 'Trade items for money with another player'

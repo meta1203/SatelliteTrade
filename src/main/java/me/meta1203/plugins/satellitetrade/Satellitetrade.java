@@ -27,6 +27,7 @@ public class Satellitetrade extends JavaPlugin implements Listener {
 
     public void onEnable() {
     	econ = new Econ();
+    	getCommand("trade").setExecutor(new TradeCommand());
         getServer().getPluginManager().registerEvents(this, this);
     }
 
