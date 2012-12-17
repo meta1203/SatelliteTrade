@@ -23,8 +23,8 @@ public class TradeChest {
 		owner.openInventory(inv);
 	}
 	
-	public boolean match(Inventory i) {
-		return i.equals(inv);
+	public boolean match(Player isOwner) {
+		return isOwner.equals(owner);
 	}
 	
 	public boolean linkedToTradee(Player tradee) {

@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 
 import me.meta1203.plugins.satoshis.SatoshisEconAPI;
 
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryCloseEvent;
@@ -35,14 +36,13 @@ public class Satellitetrade extends JavaPlugin implements Listener {
     public void onChestClose(InventoryCloseEvent event) {
     	TradeChest chest = null;
     	for (TradeChest current : openChests) {
-    		if (current.match(event.getInventory())) {
+    		if (event.getPlayer() instanceof Player && current.match((Player)event.getPlayer())) {
     			chest = current;
     			System.out.println("Yah.mov");
     			break;
     		}
     	}
     	if (chest == null) {
-    		System.out.println("Nope.avi");
     		return;
     	}
     	chest.notifyTradee();
