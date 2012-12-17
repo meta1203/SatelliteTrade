@@ -56,7 +56,6 @@ public class TradeCommand implements CommandExecutor {
 				return true;
 			}
 			toFinish.acceptFinish();
-			Satellitetrade.pending.remove(toFinish);
 			return true;
 		} else if (arg3.length == 1 && arg3[0].equals("deny")) {
 			TradeChest toFinish = null;
@@ -71,7 +70,6 @@ public class TradeCommand implements CommandExecutor {
 				return true;
 			}
 			toFinish.denyFinish();
-			Satellitetrade.pending.remove(toFinish);
 			return true;
 		}
 		

@@ -40,12 +40,18 @@ public class TradeChest {
 	
 	public void returnItems() {
 		for (ItemStack current : inv.getContents()) {
+			if (current == null) {
+				continue;
+			}
 			owner.getInventory().addItem(current);
 		}
 	}
 	
 	public void sendItems() {
 		for (ItemStack current : inv.getContents()) {
+			if (current == null) {
+				continue;
+			}
 			tradee.getInventory().addItem(current);
 		}
 	}
@@ -54,11 +60,15 @@ public class TradeChest {
 		if (Satellitetrade.econ.transact(tradee, owner, worth)) {
 			sendItems();
 			owner.sendMessage(ChatColor.GREEN + tradee.getName() + " accepted your transaction!");
+			Satellitetrade.pending.remove(this);
+		} else {
+			denyFinish();
 		}
 	}
 	
 	public void denyFinish() {
 		returnItems();
 		owner.sendMessage(ChatColor.RED + tradee.getName() + " denied your transaction!");
+		Satellitetrade.pending.remove(this);
 	}
 }

@@ -50,6 +50,10 @@ public class Econ {
 	}
 	
 	public boolean transact(Player from, Player to, double amount) {
+		if (amount < 0) {
+			from.sendMessage(ChatColor.RED + "Amount cannot be less than zero!");
+			return false;
+		}
 		if (useVault) {
 			if (!vault.has(from.getName(), amount)) {
 				from.sendMessage(ChatColor.RED + "You do not have that much money!");

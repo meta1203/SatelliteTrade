@@ -12,7 +12,12 @@ public class StringUtils {
 			if (num % 4 == 0) {
 				ret += "\n";
 			}
-			ret += current.getAmount() + "x " + current.getType().toString() + " | ";
+			if (current == null) {
+				continue;
+			}
+			System.out.println(current.getType().name());
+			System.out.println(current.getAmount());
+			ret += current.getAmount() + "x " + current.getType().name() + " | ";
 		}
 		
 		return ret;
