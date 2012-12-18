@@ -11,3 +11,8 @@ version: '1.0'
 commands:
   trade:
     description: 'Trade items for money with another player'
+permissions:
+  satellitetrade.start:
+    description: 'Permission for starting a trade'
+  satellitetrade.complete:
+    description: 'Permission for accepting or denying a trade'

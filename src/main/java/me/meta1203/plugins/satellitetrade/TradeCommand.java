@@ -22,6 +22,10 @@ public class TradeCommand implements CommandExecutor {
 		Player p = (Player)arg0;
 		
 		if (arg3.length == 2) {
+			if (!p.hasPermission("satellitetrade.start")) {
+				error("You do not have permission to initiate trades!", p);
+				return true;
+			}
 			try {
 				double amount = Double.parseDouble(arg3[1]);
 				Player to = Bukkit.getPlayer(arg3[0]);
@@ -30,7 +34,11 @@ public class TradeCommand implements CommandExecutor {
 					error("Could not find player " + arg3[0] + "!", arg0);
 					return true;
 				}
-				
+				if (!to.hasPermission("satellitetrade.complete")) {
+					error("The other player does not have permission to complete the trade." +
+							"\nTrade will not proceed.", p);
+					return true;
+				}
 				TradeChest chest = new TradeChest(p, to, amount);
 				progress("Opening trading inventory for " + p.getName(), arg0);
 				Satellitetrade.openChests.add(chest);
