@@ -33,9 +33,7 @@
 		<dependency>
 			<groupId>org.bukkit</groupId>
 			<artifactId>bukkit</artifactId>
-			<version>1.2.5-R1.0</version>
-			<type>jar</type>
-			<scope>compile</scope>
+			<version>1.4.5-R1.0</version>
 		</dependency>
 		<dependency>
 			<groupId>me.meta1203.plugins.satoshis</groupId>
